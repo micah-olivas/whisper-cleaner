@@ -3,9 +3,11 @@ Whisper Cleaner leverages timestamped multi-lingual speech-to-text generation fr
 
 ## Usage
 
-Whisper Cleaner can be used from the command line with only three arguments
+Whisper Cleaner can be used from the command line with the following
 ```bash
 whisper-cleaner [Input Directory] [Model Size]
+```
+The input directory should contain all audio files to be processed. By default, the output directory will be the same as the input directory, and completed songs will be moved to a subdirectory called `Originals`. The speed and accuracy of predictions can be controlled by changing the `model_size` between any of the default Whisper models (`tiny`, `small`, `base`, `medium`, and `large`). The default model size is `base`.
 
 ## Setup
 

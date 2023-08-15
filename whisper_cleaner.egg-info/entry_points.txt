@@ -1,0 +1,2 @@
+[console_scripts]
+whisper-cleaner = whisper_cleaner.main:main

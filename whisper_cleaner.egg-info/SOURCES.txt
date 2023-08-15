@@ -1,0 +1,9 @@
+README.md
+setup.py
+whisper_cleaner/__init__.py
+whisper_cleaner/main.py
+whisper_cleaner.egg-info/PKG-INFO
+whisper_cleaner.egg-info/SOURCES.txt
+whisper_cleaner.egg-info/dependency_links.txt
+whisper_cleaner.egg-info/entry_points.txt
+whisper_cleaner.egg-info/top_level.txt
