@@ -112,6 +112,13 @@ def main():
         # Print first ten words of text
         print('Found text: ', result['text'][:10] + '...')
 
+        ### CREATE PROFANITY LOG FILE ###
+        profanity_file_name = song_directory + '/profanity_preds.txt'
+        # write model size and header
+        with open(profanity_file_name, 'w') as f:
+            f.write('Model Size: ' + model_size + '\n')
+            f.write('word\tprediction\tstart_time\n')
+
         ### LOAD THE AUDIO FILE ###
         sound_file = AudioSegment.from_mp3(file) # Load the audio file for segmenting
 
@@ -119,7 +126,7 @@ def main():
         # Loop through the segments
         for id in range(len(result['segments'])):
 
-            # Get the words
+            # Get the words in the segment
             word_set = result['segments'][id]['words']
 
             # Loop through the words
@@ -129,9 +136,8 @@ def main():
                     word = word['text'].lower()
 
                     # Write each word and profanity prediction to a log file
-                    profanity_file_name = song_directory + '/profanity_preds.txt'
                     with open(profanity_file_name, 'a') as f:
-                        f.write(word + '\t' + str(predict_prob([word])) + '\n')
+                        f.write(word + '\t' + str(predict_prob([word])) + '\t' + str(word_set[num]['start']) + '\n')
 
                     # Check if word matches any of the queries in the list of regex for prohibited words
                     if predict_prob([word]) > 0.98:
@@ -169,7 +175,8 @@ def main():
         # Write result to a log file
         with open(logging_directory + '/log.txt', 'a') as f:
             f.write('Song:' + file + '\n')
-            f.write('Outcome:' + result['text'] + '\n\n')
+            f.write('Model:' + model_size + '\n')
+            f.write('Found text: ' + result['text'][:10] + '...' + '\n')
 
         ### MOVE THE ORIGINAL FILE TO A NEW DIRECTORY ###
         with open(song_directory + '/result.json', 'w') as f:
