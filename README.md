@@ -1,5 +1,7 @@
 # Whisper-Cleaner
-Whisper Cleaner leverages timestamped multi-lingual speech-to-text generation from [OpenAI's Whisper Model](https://github.com/openai/whisper) to recognize and remove language deemed obscene, indecent, or profane by the FCC from audio intended for radio and television broadcasts. The package uses [**whisper-timestamped**](https://github.com/linto-ai/whisper-timestamped) from linto-ai for text generation and mapping, and **profanity-check** from vzhou842 profanity prediction.
+Whisper-Cleaner is a robust tool that utilizes OpenAI's Whisper Model for precise, timestamped speech-to-text analysis to automatically detect and excise profanity from audio files, ensuring FCC compliance for broadcast content (e.g. radio broadcasts or televised audio).
+
+This solution integrates [**whisper-timestamped**](https://github.com/linto-ai/whisper-timestamped) for accurate text mapping and employs [**profanity-check**](https://github.com/vzhou842/profanity-check) for reliable profanity detection across multiple languages.
 
 ## Usage
 
